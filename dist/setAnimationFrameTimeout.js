@@ -66,18 +66,17 @@
 				elapsed -= n * _delay;
 
 				_callback();
-
-				is_canceled = true;
 				clear();
 
 				return false;
 			}
-
-			if (!is_canceled) {
-				timer = requestAnimationFrame(update);
-			}
 			else {
-				clear();
+				if (!is_canceled) {
+					timer = requestAnimationFrame(update);
+				}
+				else {
+					clear();
+				}
 			}
 
 			now = void 0;
