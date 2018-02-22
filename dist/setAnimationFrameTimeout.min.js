@@ -1,5 +1,5 @@
 /*
- *  setAnimationFrameTimeout - v2.0
+ *  setAnimationFrameTimeout - v2.0.0
  *  setAnimationFrameTimeout is an alternative function of setTimeout for modern browsers.
  *  
  *
