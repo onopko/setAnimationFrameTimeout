@@ -1,6 +1,6 @@
 {
 	"name": "setAnimationFrameTimeout",
-	"version": "1.0.0",
+	"version": "2.0",
 	"description": "setAnimationFrameTimeout is an alternative function of setTimeout for modern browsers.",
 	"keywords": [
 		"jquery",
@@ -23,8 +23,7 @@
 	"homepage": "",
 	"docs": "https://github.com/onopko/setAnimationFrameTimeout#readme",
 	"download": "https://github.com/onopko/setAnimationFrameTimeout/archive/master.zip",
-	"contributors": [
-	],
+	"contributors": [],
 	"license": "MIT",
 	"devDependencies": {
 		"grunt": "~0.4.5",

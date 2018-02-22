@@ -14,39 +14,20 @@
 			return (performanceNow && performanceNow.call(window.performance)) || (new Date().getTime());
 		};
 
-		var requestAnimationFrame = (function () {
-			return window.requestAnimationFrame       ||
-				   window.webkitRequestAnimationFrame ||
-				   window.mozRequestAnimationFrame    ||
-				   window.msRequestAnimationFrame     ||
-				   window.oRequestAnimationFrame      ||
-				   function (_callback) {
-					   window.setTimeout(_callback, 1000 / 60);
-				   };
+		var raf = (function() {
+			return  window.requestAnimationFrame       ||
+					window.webkitRequestAnimationFrame ||
+					window.mozRequestAnimationFrame    ||
+					window.oRequestAnimationFrame      ||
+					window.msRequestAnimationFrame     ||
+					function (callback) {
+						window.setTimeout(callback, 1000 / 60);
+					};
 		})();
 
-		var cancelAnimationFrame = (function() {
-			return window.cancelRequestAnimationFrame  ||
-				window.webkitCancelAnimationFrame        ||
-				window.webkitCancelRequestAnimationFrame ||
-				window.mozCancelRequestAnimationFrame    ||
-				window.msCancelRequestAnimationFrame     ||
-				window.oCancelRequestAnimationFrame      ||
-				function (_id) {
-					window.clearTimeout(_id);
-				};
-		})();
-
-		var elapsed     = 0;
-		var time        = getTime();
-		var is_canceled = false;
-		var timer;
-
-		var clear = function () {
-			cancelAnimationFrame(timer);
-
-			elapsed = time = is_canceled = timer = update = clear = void 0;
-		};
+		var elapsed = 0;
+		var time    = getTime();
+		var timer   = {};
 
 		var update = function() {
 			var now = getTime();
@@ -58,29 +39,27 @@
 				elapsed -= n * _delay;
 
 				_callback();
-				clear();
-
-				return false;
 			}
 			else {
-				if (!is_canceled) {
-					timer = requestAnimationFrame(update);
-				}
-				else {
-					clear();
-				}
+				timer.value = raf(update);
 			}
 
 			now = void 0;
 		};
 
-		update();
+		timer.value = raf(update);
 
-		$.clearAnimationFrameTimeout = function () {
-			is_canceled = true;
-		};
+		return timer;
+	};
 
-		return this;
+	$.clearAnimationFrameTimeout = function (_timer) {
+		if (window.cancelAnimationFrame) { window.cancelAnimationFrame(_timer.value); }
+		else if (window.webkitCancelAnimationFrame) { window.webkitCancelAnimationFrame(_timer.value); }
+		else if (window.webkitCancelRequestAnimationFrame) { window.webkitCancelRequestAnimationFrame(_timer.value); }
+		else if (window.mozCancelRequestAnimationFrame) { window.mozCancelRequestAnimationFrame(_timer.value); }
+		else if (window.oCancelRequestAnimationFrame) {	window.oCancelRequestAnimationFrame(_timer.value); }
+		else if (window.msCancelRequestAnimationFrame) { window.msCancelRequestAnimationFrame(_timer.value); }
+		else { clearTimeout(_timer); }
 	};
 
 })(jQuery, window);
