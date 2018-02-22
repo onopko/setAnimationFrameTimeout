@@ -7,14 +7,14 @@ setAnimationFrameTimeout is an alternative function of setTimeout for modern bro
 
 1. Include jQuery and plugin's code:
 
-	```html
+```html
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="setAnimationFrameTimeout.min.js"></script>
 ```
 
 2. Make a timer:
 
-    ```javascript
+```javascript
 var timer = $.setAnimationFrameTimeout(function () {
 	// do something.
 }, 1000);
@@ -22,7 +22,7 @@ var timer = $.setAnimationFrameTimeout(function () {
 
 3. And you can stop the timer:
 
-    ```javascript
+```javascript
 $.clearAnimationFrameTimeout(timer);
 ```
 
