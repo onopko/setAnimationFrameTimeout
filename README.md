@@ -1,4 +1,4 @@
-# setAnimationFrameTimeout [![Build Status](https://secure.travis-ci.org/onopko/setAnimationFrameTimeout.svg?branch=master)](https://travis-ci.org/onopko/setAnimationFrameTimeout) ![Bower Version](https://badge.fury.io/bo/setanimationframetimeout.svg)
+# setAnimationFrameTimeout [![Build Status](https://secure.travis-ci.org/onopko/setAnimationFrameTimeout.svg?branch=master)](https://travis-ci.org/onopko/setAnimationFrameTimeout) [![npm version](https://badge.fury.io/js/setanimationframetimeout.svg)](https://badge.fury.io/js/setanimationframetimeout)
 
 setAnimationFrameTimeout is an alternative function of setTimeout for modern browsers.
 
@@ -11,9 +11,10 @@ setAnimationFrameTimeout is an alternative function of setTimeout for modern bro
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="setAnimationFrameTimeout.min.js"></script>
 ```
+
 2. Make a timer:
 
-	```javascript
+    ```javascript
 var timer = $.setAnimationFrameTimeout(function () {
 	// do something.
 }, 1000);
@@ -21,7 +22,7 @@ var timer = $.setAnimationFrameTimeout(function () {
 
 3. And you can stop the timer:
 
-	```javascript
+    ```javascript
 $.clearAnimationFrameTimeout(timer);
 ```
 
@@ -31,7 +32,7 @@ $.clearAnimationFrameTimeout(timer);
 
 The MIT License (MIT)
 
-Copyright (c) 2016 Takehiko Ono
+Copyright (c) 2018 Takehiko Ono
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
