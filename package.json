@@ -1,6 +1,6 @@
 {
 	"name": "setanimationframetimeout",
-	"version": "2.0.1",
+	"version": "2.0.2",
 	"description": "setAnimationFrameTimeout is an alternative function of setTimeout for modern browsers.",
 	"keywords": [
 		"jquery",

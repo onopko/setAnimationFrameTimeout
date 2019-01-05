@@ -1,5 +1,5 @@
 /*
- *  setanimationframetimeout - v2.0.1
+ *  setanimationframetimeout - v2.0.2
  *  setAnimationFrameTimeout is an alternative function of setTimeout for modern browsers.
  *  
  *
@@ -61,12 +61,12 @@
 	};
 
 	$.clearAnimationFrameTimeout = function (_timer) {
-		if (window.cancelAnimationFrame) { window.cancelAnimationFrame(_timer.value); }
-		else if (window.webkitCancelAnimationFrame) { window.webkitCancelAnimationFrame(_timer.value); }
-		else if (window.webkitCancelRequestAnimationFrame) { window.webkitCancelRequestAnimationFrame(_timer.value); }
-		else if (window.mozCancelRequestAnimationFrame) { window.mozCancelRequestAnimationFrame(_timer.value); }
-		else if (window.oCancelRequestAnimationFrame) {	window.oCancelRequestAnimationFrame(_timer.value); }
-		else if (window.msCancelRequestAnimationFrame) { window.msCancelRequestAnimationFrame(_timer.value); }
+		if (window.cancelAnimationFrame) { if (typeof _timer === "object") { window.cancelAnimationFrame(_timer.value); } }
+		else if (window.webkitCancelAnimationFrame) { if (typeof _timer === "object") { window.webkitCancelAnimationFrame(_timer.value); } }
+		else if (window.webkitCancelRequestAnimationFrame) { if (typeof _timer === "object") { window.webkitCancelRequestAnimationFrame(_timer.value); } }
+		else if (window.mozCancelRequestAnimationFrame) { if (typeof _timer === "object") { window.mozCancelRequestAnimationFrame(_timer.value); } }
+		else if (window.oCancelRequestAnimationFrame) { if (typeof _timer === "object") { window.oCancelRequestAnimationFrame(_timer.value); } }
+		else if (window.msCancelRequestAnimationFrame) { if (typeof _timer === "object") { window.msCancelRequestAnimationFrame(_timer.value); } }
 		else { clearTimeout(_timer); }
 	};
 
